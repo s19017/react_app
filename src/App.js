@@ -1,12 +1,8 @@
 import React from 'react'
 
 const Hello = props => {
-    return (
-      <div>
-         <p>探すのに時があり</p>
-         <p>捨てる時がある</p>
-      </div>
-    )
+const value = "<<< 豚に真珠、猫に小判 >>>"
+    return <h2>{value}</h2>
 }
 
 class App extends React.Component {
