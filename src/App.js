@@ -1,34 +1,30 @@
-import React from 'react'
+import React,{ Component } from 'react'
 
-const Hello = props => {
-const css1 = {
-    color: 'red',
-    backgroundColor: '#f0f0ff',
-    fontSize: '2em'
-}
-const css2 = {
-    color: 'blue',
-    backgroundColor: '#fff0f0',
-    fontSize: '2em'
-}
-    return (
-        <div>
-            <p style={css1}>探すのに時があり</p>
-            <p style={css2}>捨てるのに時がある</p>
-        </div>    
-    )
-}
-
-class App extends React.Component {
+class App extends Component {
   constructor (props) {
     super(props)
-    this.state = {}
+    console.log('constructor')
   }
-  
+  componentDidMount () {
+    console.log('componentDidMount')
+  }
+  shouldComponentUpdate (nextProps, nextState) {
+    console.log('shouldComponentUpdate')
+    return true
+  }
+  componentDidUpdate () {
+    console.log('componentDidUpdate')
+  }
   render () {
+    console.log('render')
+    const setStateHandler = (e) => {
+      console.log('* call setState()')
+      this.setState({r: Math.random()})
+    }
     return (
       <div>
-          <Hello />
+        <button onClick={setStateHandler}>
+        setState</button>
       </div>
     )
   }
